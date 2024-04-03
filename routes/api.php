@@ -7,10 +7,6 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\AdminController;
 
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/employee', [EmployeeController::class, 'index'])->name('employee-lists');
     Route::post('/employee', [EmployeeController::class, 'store'])->name('employee-lists.store');
