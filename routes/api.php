@@ -8,17 +8,17 @@ use App\Http\Controllers\AdminController;
 
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/employee', [EmployeeController::class, 'index'])->name('employee-lists');
-    Route::post('/employee', [EmployeeController::class, 'store'])->name('employee-lists.store');
-    Route::put('/employee/{id}', [EmployeeController::class, 'update'])->name('employee-lists.update');
-    Route::get('/employee/{id}', [EmployeeController::class, 'show'])->name('employee-lists.show');
-    Route::delete('/employee/{id}', [EmployeeController::class, 'destroy'])->name('employee-lists.destroy');
+    Route::get('/employee', [EmployeeController::class, 'index']);
+    Route::post('/employee', [EmployeeController::class, 'store']);
+    Route::put('/employee/{id}', [EmployeeController::class, 'update']);
+    Route::get('/employee/{id}', [EmployeeController::class, 'show']);
+    Route::delete('/employee/{id}', [EmployeeController::class, 'destroy']);
 
-    Route::get('/role', [RoleController::class, 'index'])->name('role');
-    Route::post('/role', [RoleController::class, 'store'])->name('role.store');
-    Route::put('/role/{id}', [RoleController::class, 'update'])->name('role.update');
-    Route::get('/role/{id}', [RoleController::class, 'show'])->name('employee-lists.show');
-    Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('employee-lists.destroy');
+    Route::get('/role', [RoleController::class, 'index']);
+    Route::post('/role', [RoleController::class, 'store']);
+    Route::put('/role/{id}', [RoleController::class, 'update']);
+    Route::get('/role/{id}', [RoleController::class, 'show']);
+    Route::delete('/role/{id}', [RoleController::class, 'destroy']);
 });
 
 Route::post('/register', [AdminController::class, 'store']);
