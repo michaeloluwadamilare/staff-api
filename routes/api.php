@@ -13,6 +13,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/employee/{id}', [EmployeeController::class, 'update']);
     Route::get('/employee/{id}', [EmployeeController::class, 'show']);
     Route::delete('/employee/{id}', [EmployeeController::class, 'destroy']);
+    Route::get('/search', [EmployeeController::class, 'search']);
 
     Route::get('/role', [RoleController::class, 'index']);
     Route::post('/role', [RoleController::class, 'store']);

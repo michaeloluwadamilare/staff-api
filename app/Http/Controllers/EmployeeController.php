@@ -115,6 +115,25 @@ class EmployeeController extends Controller
 
     }
 
+    public function search(Request $request)
+    {
+        $query = Employee::query();
+
+        // Search by staff ID if provided
+        if ($request->has('id')) {
+            $query->where('id', $request->id);
+        }
+
+        // Search by staff name if provided
+        if ($request->has('name')) {
+            $query->where('name', 'like', '%' . $request->name . '%');
+        }
+
+        $employees = $query->get();
+
+        return response()->json(['status' => 'success', 'employees' => $employees], Response::HTTP_OK);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
