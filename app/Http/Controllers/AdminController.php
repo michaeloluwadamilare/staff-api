@@ -87,6 +87,7 @@ class AdminController extends Controller
     {
         auth()->user()->tokens()->delete();
         return response()->json([
+            'status' => 'success',
             'message' => 'user logged out'
         ],200);
     }
