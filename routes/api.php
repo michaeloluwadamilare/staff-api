@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/role/{id}', [RoleController::class, 'update']);
     Route::get('/role/{id}', [RoleController::class, 'show']);
     Route::delete('/role/{id}', [RoleController::class, 'destroy']);
+    Route::post('/logout', [AdminController::class, 'logout']);
 });
 
 Route::post('/register', [AdminController::class, 'store']);
