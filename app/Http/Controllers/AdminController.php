@@ -19,7 +19,6 @@ class AdminController extends Controller
     {
 
         try {
-            // Validate the incoming request data
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -54,13 +53,11 @@ class AdminController extends Controller
     public function login(Request $request)
     {
         try {
-            // Validate the incoming request data
             $request->validate([
                 'email' => ['required', 'email'],
                 'password' => 'required',
             ]);
         } catch (ValidationException $e) {
-            // Return a JSON response with validation errors and status code 422
             return response()->json([
                 'status' => 'error',
                 'error' => 'Validation Error',
@@ -83,7 +80,7 @@ class AdminController extends Controller
             'token' => $user->createToken("API TOKEN")->plainTextToken
         ], 200);
     }
-    
+
     public function logout(Request $request)
     {
         auth()->user()->tokens()->delete();
