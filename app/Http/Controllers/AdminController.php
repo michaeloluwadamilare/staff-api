@@ -83,6 +83,7 @@ class AdminController extends Controller
             'token' => $user->createToken("API TOKEN")->plainTextToken
         ], 200);
     }
+    
     public function logout(Request $request)
     {
         auth()->user()->tokens()->delete();
